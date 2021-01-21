@@ -17,21 +17,40 @@ $(document).on("click",".btn_registrar",function(){
 	let pw=$("#password").val();
 
 	if(pw.trim().length<5){
-		alert("Clave obligatorio");
+
+		Swal.fire({
+		  position: 'bottom-end',
+		  icon: 'error',
+		  title: 'Clave obligatorio',
+		  showConfirmButton: true
+		})
 		$("#password").select();
 		return false;
 	}
 
 	let pw2=$("#password_confirm").val();
 	if(pw !== pw2){
-		alert("Claves no coinciden");
+
+		Swal.fire({
+		  position: 'bottom-end',
+		  icon: 'error',
+		  title: 'Claves no coinciden',
+		  showConfirmButton: true
+		})
+
 		$("#password_confirm").select();
 		return false;
 	}
 
 	let city=$("#ciudad").val();
 	if(city==""){
-		alert("Elija una ciudad");
+		Swal.fire({
+		  position: 'bottom-end',
+		  icon: 'error',
+		  title: 'Debe elegir una ciudad',
+		  showConfirmButton: true
+		})
+
 		$("#ciudad").focus();
 		return false;
 	}
